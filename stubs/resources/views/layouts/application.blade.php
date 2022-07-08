@@ -89,6 +89,8 @@
 
 	<!-- `perfect-scrollbar` library required by SideNav plugin -->
 	<script src="{{ mix('/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+	<script src="{{ mix('/vendor/libs/block-ui/block-ui.js') }}"></script>
+	<script src="{{ mix('/vendor/libs/toastr/toastr.js') }}"></script>
 
 	@yield('scripts')
 
