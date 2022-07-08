@@ -33,7 +33,10 @@
 	},
 	"scripts": {
 		"test": "vendor/bin/phpunit",
-		"test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+		"test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+		"post-autoload-dump": [
+			"@php artisan bs4-aw-starters:install"
+		]
 	},
 	"config": {
 		"sort-packages": true
