@@ -13,6 +13,11 @@ trait InstallsBladeStack
 	 */
 	protected function installBladeStack()
 	{
+		$this->updateConfig("'name' => env('APP_NAME', 'Laravel')", "'name' => env('APP_NAME', 'Laravel BS4 AW STARTER KIT')", base_path('config/app.php'));
+		$this->updateConfig("'timezone' => 'UTC'", "'timezone' => 'Asia/Ho_Chi_Minh'", base_path('config/app.php'));
+		$this->updateConfig("'locale' => 'en'", "'locale' => 'vi'", base_path('config/app.php'));
+		$this->updateConfig("'faker_locale' => 'en_US'", "'faker_locale' => 'vi_VN'", base_path('config/app.php'));
+
 		$this->updateNodeBrowserslist();
 
 		// NPM Packages...

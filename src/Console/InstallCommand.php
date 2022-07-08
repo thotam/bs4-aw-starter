@@ -6,11 +6,13 @@ use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
+use Thotam\Bs4AwStarter\Traits\HelperTrait;
 use Symfony\Component\Process\PhpExecutableFinder;
 
 class InstallCommand extends Command
 {
 	use InstallsBladeStack;
+	use HelperTrait;
 
 	/**
 	 * The name and signature of the console command.
@@ -55,36 +57,6 @@ class InstallCommand extends Command
 			(new Filesystem)->copy(__DIR__ . '/../../stubs/pest-tests/Pest.php', base_path('tests/Pest.php'));
 		} else {
 			(new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/tests/Feature', base_path('tests/Feature/Auth'));
-		}
-	}
-
-	/**
-	 * Install the middleware to a group in the application Http Kernel.
-	 *
-	 * @param  string  $after
-	 * @param  string  $name
-	 * @param  string  $group
-	 * @return void
-	 */
-	protected function installMiddlewareAfter($after, $name, $group = 'web')
-	{
-		$httpKernel = file_get_contents(app_path('Http/Kernel.php'));
-
-		$middlewareGroups = Str::before(Str::after($httpKernel, '$middlewareGroups = ['), '];');
-		$middlewareGroup = Str::before(Str::after($middlewareGroups, "'$group' => ["), '],');
-
-		if (!Str::contains($middlewareGroup, $name)) {
-			$modifiedMiddlewareGroup = str_replace(
-				$after . ',',
-				$after . ',' . PHP_EOL . '            ' . $name . ',',
-				$middlewareGroup,
-			);
-
-			file_put_contents(app_path('Http/Kernel.php'), str_replace(
-				$middlewareGroups,
-				str_replace($middlewareGroup, $modifiedMiddlewareGroup, $middlewareGroups),
-				$httpKernel
-			));
 		}
 	}
 
