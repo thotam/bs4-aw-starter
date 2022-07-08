@@ -112,6 +112,10 @@ trait InstallsBladeStack
 		copy(__DIR__ . '/../../stubs/App/Http/Controllers/HomeController.php', app_path('Http/Controllers/HomeController.php'));
 		copy(__DIR__ . '/../../stubs/App/Http/Controllers/Page2Controller.php', app_path('Http/Controllers/Page2Controller.php'));
 
+		// Middlewares...
+		(new Filesystem)->ensureDirectoryExists(app_path('Http/Middleware'));
+		(new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/App/Http/Middleware', app_path('Http/Middleware'));
+
 		// Views...
 		(new Filesystem)->ensureDirectoryExists(resource_path('views'));
 		(new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/resources/views', resource_path('views'));

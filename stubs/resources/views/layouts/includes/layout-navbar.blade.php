@@ -84,14 +84,7 @@
 						<a href="javascript:void(0)" class="dropdown-item"><i class="ion ion-md-settings text-lightest"></i> &nbsp; Account settings</a>
 						<div class="dropdown-divider"></div>
 
-						<span class="dropdown-item" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-							<i class="ion ion-ios-log-out text-danger"></i> &nbsp; Đăng xuất
-						</span>
-
-						<form id="logout-form" action="{{ route('logout', ['urlback' => url()->current()]) }}" method="POST" class="d-none">
-							@csrf
-						</form>
+						@livewire('laravel-auth::logout-livewire', ['route_redirect' => Route::currentRouteName()])
 
 					</div>
 				</div>
