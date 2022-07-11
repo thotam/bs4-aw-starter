@@ -49,4 +49,33 @@ trait HelperTrait
 
 		$this->replaceInFile($search, $replace, $path);
 	}
+
+	/**
+	 * Install the route middleware to $routeMiddleware Http Kernel.
+	 *
+	 * @param  string  $after
+	 * @param  string  $name
+	 * @param  string  $group
+	 * @return void
+	 */
+	protected function installRouteMiddlewareAfter($after, $name)
+	{
+		$httpKernel = file_get_contents(app_path('Http/Kernel.php'));
+
+		$routeMiddleware = Str::before(Str::after($httpKernel, '$routeMiddleware = ['), '];');
+
+		if (!Str::contains($routeMiddleware, $name)) {
+			$modifiedRouteMiddleware = str_replace(
+				$after . ',',
+				$after . ',' . PHP_EOL . '        ' . $name . ',',
+				$routeMiddleware,
+			);
+
+			file_put_contents(app_path('Http/Kernel.php'), str_replace(
+				$routeMiddleware,
+				$modifiedRouteMiddleware,
+				$httpKernel
+			));
+		}
+	}
 }
