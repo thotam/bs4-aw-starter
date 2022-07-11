@@ -277,3 +277,93 @@ html:not(.material-style) .material-style-only {
 	code {
 	color: #666 !important;
 }
+
+/* Tho Tâm Customs */
+
+[thotam-datatables] > tbody > tr > td,
+[thotam-datatables] > thead:nth-child(2) > tr > th,
+[thotam-datatables] > thead:nth-child(2) > tr > td {
+	vertical-align: middle !important;
+}
+
+[thotam-datatables] > tbody > tr > td .dropdown-item.waves-effect {
+	display: block !important;
+}
+
+[thotam-datatables] > thead > tr > th:not(:last-child) {
+	text-align: center !important;
+}
+
+[thotam-datatables] > thead > tr > th.sorting_asc,
+[thotam-datatables] > thead > tr > th.sorting_desc,
+[thotam-datatables] > thead > tr > th.sorting {
+	padding-right: 35px !important;
+}
+
+[thotam-datatables] > tbody > tr > td,
+[thotam-datatables] > thead:first-child > tr > th {
+	white-space: nowrap;
+}
+
+[thotam-datatables] > tbody > tr > td,
+[thotam-datatables] > thead > tr > th {
+	font-size: 0.894rem !important;
+	text-transform: none !important;
+}
+
+[thotam-datatables] > thead:nth-child(2) > tr > th:first-child,
+[thotam-datatables] > thead:nth-child(2) > tr > td:first-child {
+	padding-left: 1.5rem !important;
+}
+
+[thotam-datatables] .table-row-details td[action],
+[thotam-datatables] > tbody > tr > td:first-child,
+[thotam-datatables] > thead:nth-child(2) > tr > th,
+[thotam-datatables] > thead:nth-child(2) > tr > td {
+	padding: 0.625rem !important;
+}
+
+[thotam-datatables] > thead:nth-child(2) > tr > th > div,
+[thotam-datatables] > thead:nth-child(2) > tr > td > div,
+[thotam-datatables] > thead:nth-child(2) > tr > th > div *,
+[thotam-datatables] > thead:nth-child(2) > tr > td > div * {
+	font-size: 0.75rem !important;
+}
+
+div.position-relative.dt-select2 {
+	width: 100% !important;
+}
+
+div.card-datatable.table-responsive
+	> span.select2-container
+	.select2-dropdown.select2-dropdown--below {
+	min-width: fit-content !important;
+	max-width: 175px !important;
+}
+
+div.position-relative.dt-select2
+	.select2-container--default
+	.select2-selection--multiple
+	.select2-selection__rendered
+	li,
+.card-datatable.table-responsive
+	.select2-container--default
+	li.select2-results__option {
+	white-space: nowrap !important;
+}
+
+div.position-relative.dt-select2
+	> span.select2-container
+	textarea.select2-search__field {
+	/* margin-top: 0 !important;
+    margin-bottom: 0 !important; */
+	text-align: center;
+}
+
+div.card-datatable.table-responsive > span.select2-container * {
+	font-size: 0.75rem !important;
+}
+
+.card-datatable.table-responsive {
+	overflow: visible;
+}

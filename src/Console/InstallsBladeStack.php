@@ -79,6 +79,7 @@ trait InstallsBladeStack
 				'jquery-validation' => '~1.19.4',
 				'jquery.growl' => '~1.3.5',
 				'jstree' => '~3.3.12',
+				'jszip' => '^3.6.0',
 				'ladda' => '~2.0.3',
 				'markdown' => '~0.5.0',
 				'masonry-layout' => '~4.2.2',
@@ -89,6 +90,7 @@ trait InstallsBladeStack
 				'nouislider' => '~14.7.0',
 				'numeral' => '~2.0.6',
 				'pace-js' => '~1.2.4',
+				'pdfmake' => '^0.1.70',
 				'perfect-scrollbar' => '~1.5.5',
 				'photoswipe' => '~4.1.3',
 				'plyr' => '3.6.8',
@@ -112,6 +114,11 @@ trait InstallsBladeStack
 				'vanilla-text-mask' => '~5.1.1',
 			] + $packages;
 		});
+
+		// requireComposerPackages
+		$this->requireComposerPackages('yajra/laravel-datatables:^1.5', 'livewire/livewire:^2.10');
+
+		\Artisan::call("vendor:publish --tag=datatables-buttons");
 
 		// Controllers...
 		copy(__DIR__ . '/../../stubs/App/Http/Controllers/HomeController.php', app_path('Http/Controllers/HomeController.php'));
