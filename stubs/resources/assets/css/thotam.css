@@ -367,3 +367,119 @@ div.card-datatable.table-responsive > span.select2-container * {
 .card-datatable.table-responsive {
 	overflow: visible;
 }
+
+.text-transform-none {
+	text-transform: none !important;
+}
+
+div.dt-buttons {
+	width: 100%;
+}
+
+span.dropdown-item:hover {
+	cursor: pointer;
+}
+
+.cursor-auto
+	.select2-container--default.select2-container--disabled
+	.select2-selection--multiple {
+	cursor: auto;
+}
+
+.bootstrap-tagsinput {
+	padding-left: 0.5rem !important;
+	padding-right: 0.5rem !important;
+}
+
+@media (min-width: 992px) {
+	.modal-slg,
+	.modal-sxl {
+		max-width: 43.5rem;
+	}
+}
+
+.custom-switch .thotam-control-label::before {
+	left: -0.625rem !important;
+}
+
+.form-control.custom-select.rounded {
+	text-align-last: center;
+}
+.mw-160 {
+	min-width: 160px;
+}
+
+.badge-mentor {
+	background-color: #61bbb9;
+	color: #fff;
+}
+
+.badge-s {
+	background-color: #ffdc5d;
+	color: #fff;
+}
+
+.badge-mn {
+	background-color: #0da75e;
+	color: #fff;
+}
+
+.badge-mc {
+	background-color: #ed8622;
+	color: #fff;
+}
+
+.badge-o {
+	background-color: #f9bec0;
+	color: #fff;
+}
+
+body {
+	/* We need to assaign this CSS Custom property to the body instead of :root, because of CSS Specificity and codepen stylesheet placement before loaded CKE5 content. */
+	--ck-z-default: 100;
+	--ck-z-modal: calc(var(--ck-z-default) + 999);
+}
+
+.filepond--credits {
+	display: none;
+}
+
+input[type="month"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator {
+	margin-left: 0;
+}
+
+.modal-slg {
+	max-width: 37.5rem;
+}
+
+@media (min-width: 992px) {
+	.modal-slg,
+	.modal-sxl {
+		max-width: 43.5rem;
+	}
+}
+
+.inline-gallery-maximize {
+	transform: none !important;
+	-webkit-transform: none !important;
+}
+
+.inline-gallery-container {
+	width: 100%;
+	padding-top: 70%;
+	background-color: rgb(44, 22, 22);
+}
+
+[thotam-ckeditor] figure.image > img {
+	max-width: 100%;
+}
+
+[thotam-ckeditor] figure.image > figcaption,
+[thotam-ckeditor] figure.image {
+	text-align: center;
+}
+
+.ck.ck-content.ck-editor__editable {
+	max-height: 625px;
+}

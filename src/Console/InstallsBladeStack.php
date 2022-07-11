@@ -115,10 +115,14 @@ trait InstallsBladeStack
 			] + $packages;
 		});
 
+		// addRepositories
+		$this->addRepositories("thotam/thotam-laravel-datatables-filter");
+
 		// requireComposerPackages
-		$this->requireComposerPackages('yajra/laravel-datatables:^1.5', 'livewire/livewire:^2.10');
+		$this->requireComposerPackages('yajra/laravel-datatables:^1.5', 'livewire/livewire:^2.10', 'thotam/thotam-laravel-datatables-filter:*');
 
 		\Artisan::call("vendor:publish --tag=datatables-buttons");
+		\Artisan::call("thotam-laravel-datatables-filter:install");
 
 		// Controllers...
 		copy(__DIR__ . '/../../stubs/App/Http/Controllers/HomeController.php', app_path('Http/Controllers/HomeController.php'));

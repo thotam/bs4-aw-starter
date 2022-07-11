@@ -55,7 +55,6 @@ trait HelperTrait
 	 *
 	 * @param  string  $after
 	 * @param  string  $name
-	 * @param  string  $group
 	 * @return void
 	 */
 	protected function installRouteMiddlewareAfter($after, $name)
@@ -77,5 +76,39 @@ trait HelperTrait
 				$httpKernel
 			));
 		}
+	}
+
+	/**
+	 * Add github vcs to composer.
+	 *
+	 * @param  string  $name
+	 * @return void
+	 */
+	protected function addRepositories($name)
+	{
+		$composers = json_decode(file_get_contents(base_path('composer.json')), true);
+		if (array_key_exists("repositories", $composers)) {
+			$repositories = $composers['repositories'];
+		} else {
+			$repositories = [];
+		}
+
+		$collect_repositories = collect($repositories)->filter(function ($value, $key) use ($name) {
+			return Str::contains($value['url'], $name);
+		});
+
+		if ($collect_repositories->count() == 0) {
+			$repositories[] = [
+				'type' => 'vcs',
+				'url' => "git@github.com:" . $name . ".git"
+			];
+		}
+
+		$composers['repositories'] = $repositories;
+
+		file_put_contents(
+			base_path('composer.json'),
+			json_encode($composers, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
+		);
 	}
 }
