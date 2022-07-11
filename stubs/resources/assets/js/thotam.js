@@ -48,3 +48,12 @@ window.addEventListener("blockUI", function (e) {
 window.addEventListener("unblockUI", function (e) {
 	$.unblockUI();
 });
+
+//Gọi livewire method
+$(document).on("click", "[thotam-livewire-method]", function () {
+	ThoTam_BlockUI();
+	Livewire.emit(
+		$(this).attr("thotam-livewire-method"),
+		$(this).attr("thotam-model-id")
+	);
+});

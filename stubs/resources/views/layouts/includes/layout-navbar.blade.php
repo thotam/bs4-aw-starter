@@ -84,8 +84,11 @@
 						<a href="javascript:void(0)" class="dropdown-item"><i class="ion ion-md-settings text-lightest"></i> &nbsp; Account settings</a>
 						<div class="dropdown-divider"></div>
 
-						@livewire('laravel-auth::logout-livewire', ['route_redirect' => Route::currentRouteName()])
+						<span class="dropdown-item" thotam-blockui wire:loading.attr="disabled" thotam-livewire-method="logout">
+							<i class="ion ion-ios-log-out text-danger"></i> &nbsp; Đăng xuất
+						</span>
 
+						@livewire('laravel-auth::logout-livewire', ['route_redirect' => Route::currentRouteName()])
 					</div>
 				</div>
 
