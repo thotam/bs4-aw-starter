@@ -134,9 +134,9 @@ trait InstallsBladeStack
 
 		\Artisan::call("laravel-auth:install");
 		\Artisan::call("laravel-hr:install");
-		\Artisan::call("laravel-permission:install");
 		\Artisan::call("vendor:publish --tag=datatables-buttons");
 		\Artisan::call("thotam-laravel-datatables-filter:install");
+		\Artisan::call("laravel-permission:install");
 
 		// Controllers...
 		copy(__DIR__ . '/../../stubs/App/Http/Controllers/HomeController.php', app_path('Http/Controllers/HomeController.php'));
