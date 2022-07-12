@@ -116,11 +116,25 @@ trait InstallsBladeStack
 		});
 
 		// addRepositories
+		$this->addRepositories("thotam/laravel-auth");
+		$this->addRepositories("thotam/laravel-hr");
+		$this->addRepositories("thotam/laravel-permission");
 		$this->addRepositories("thotam/thotam-laravel-datatables-filter");
 
 		// requireComposerPackages
-		$this->requireComposerPackages('yajra/laravel-datatables:^1.5', 'livewire/livewire:^2.10', 'thotam/thotam-laravel-datatables-filter:*');
+		$this->requireComposerPackages(
+			'yajra/laravel-datatables:^1.5',
+			'livewire/livewire:^2.10',
+			'thotam/thotam-laravel-datatables-filter:*',
+			'thotam/laravel-auth:*',
+			'thotam/laravel-hr:*',
+			'thotam/laravel-permission:*',
+			'wildside/userstamps:dev-master'
+		);
 
+		\Artisan::call("laravel-auth:install");
+		\Artisan::call("laravel-hr:install");
+		\Artisan::call("laravel-permission:install");
 		\Artisan::call("vendor:publish --tag=datatables-buttons");
 		\Artisan::call("thotam-laravel-datatables-filter:install");
 

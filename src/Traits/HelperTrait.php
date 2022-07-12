@@ -111,4 +111,47 @@ trait HelperTrait
 			json_encode($composers, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
 		);
 	}
+
+	/**
+	 * Insert After string.
+	 *
+	 * @param  string  $after
+	 * @param  string  $insert
+	 * @param  string  $path
+	 * @param  string  $space
+	 * @return void
+	 */
+	protected function insertAfter($after, $insert, $path, $space = "	")
+	{
+		$contents = file_get_contents($path);
+
+		if (!Str::contains($contents, $insert)) {
+			file_put_contents($path, str_replace(
+				$after,
+				$after . PHP_EOL . $space . $insert,
+				$contents,
+			));
+		}
+	}
+
+	/**
+	 * ImplementsContracts
+	 *
+	 * @param  mixed $find
+	 * @param  mixed $replace
+	 * @param  mixed $path
+	 * @return void
+	 */
+	protected function ImplementsContracts($find, $replace, $path)
+	{
+		$contents = file_get_contents($path);
+
+		if (!Str::contains($contents, $replace)) {
+			file_put_contents($path, str_replace(
+				$find,
+				$replace,
+				$contents,
+			));
+		}
+	}
 }
