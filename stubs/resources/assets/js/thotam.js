@@ -191,17 +191,3 @@ $(".modal.fade").on("hidden.bs.modal", function (e) {
 $(".modal.fade").on("shown.bs.modal", function (e) {
 	window.show_modal = null;
 });
-
-//Toastr thông báo
-window.addEventListener("toastr", (event) => {
-	toastr[event.detail.type](event.detail.message, event.detail.title, {
-		positionClass: "toast-top-right",
-		closeButton: true,
-		progressBar: true,
-		timeOut: 15000,
-		extendedTimeOut: 2000,
-		preventDuplicates: false,
-		newestOnTop: true,
-		rtl: $("body").attr("dir") === "rtl" || $("html").attr("dir") === "rtl",
-	});
-});

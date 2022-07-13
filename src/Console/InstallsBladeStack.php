@@ -119,6 +119,7 @@ trait InstallsBladeStack
 		$this->addRepositories("thotam/laravel-auth");
 		$this->addRepositories("thotam/laravel-hr");
 		$this->addRepositories("thotam/laravel-permission");
+		$this->addRepositories("thotam/laravel-plus");
 		$this->addRepositories("thotam/thotam-laravel-datatables-filter");
 
 		// requireComposerPackages
@@ -129,6 +130,8 @@ trait InstallsBladeStack
 			'thotam/laravel-auth:*',
 			'thotam/laravel-hr:*',
 			'thotam/laravel-permission:*',
+			'thotam/laravel-plus:*',
+			'thotam/laravel-team:*',
 			'wildside/userstamps:dev-master'
 		);
 
