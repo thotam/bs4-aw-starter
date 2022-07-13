@@ -165,8 +165,8 @@ mixAssetsDir("vendor/sass/pages/**/!(_)*.scss", (src, dest) =>
 );
 
 // Fonts
-mixAssetsDir("vendor/fonts/*.css", (src, dest) => mix.copy(src, dest));
-mixAssetsDir("vendor/fonts/*/*", (src, dest) => mix.copy(src, dest));
+mixAssetsDir("vendor/fonts/**/*.css", (src, dest) => mix.copy(src, dest));
+mixAssetsDir("vendor/fonts/**/*", (src, dest) => mix.copy(src, dest));
 
 /*
  |--------------------------------------------------------------------------

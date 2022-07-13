@@ -20,7 +20,7 @@
 	<link rel="manifest" href="{{ mix('/favicon/site.webmanifest') }}">
 
 	<!-- Icons. Uncomment required icon fonts -->
-	<link rel="stylesheet" href="{{ mix('/vendor/fonts/fontawesome.css') }}">
+	<link rel="stylesheet" href="{{ mix('/vendor/fonts/fontawesome/css/all.css') }}">
 	<link rel="stylesheet" href="{{ mix('/vendor/fonts/ionicons.css') }}">
 	<link rel="stylesheet" href="{{ mix('/vendor/fonts/linearicons.css') }}">
 	<link rel="stylesheet" href="{{ mix('/vendor/fonts/open-iconic.css') }}">

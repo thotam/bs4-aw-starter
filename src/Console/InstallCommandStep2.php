@@ -40,6 +40,7 @@ class InstallCommandStep2 extends Command
 		\Artisan::call("vendor:publish", ["--tag" => ["datatables-buttons"]]);
 		\Artisan::call("thotam-laravel-datatables-filter:install");
 		\Artisan::call("laravel-permission:install");
+		\Artisan::call("laravel-plus:install");
 
 		$this->info('Bootstrap 4 - Appwork - Starter Kits scaffolding installed successfully.');
 		$this->comment('Please execute the "npm install && npm run dev" command to build your assets.');
