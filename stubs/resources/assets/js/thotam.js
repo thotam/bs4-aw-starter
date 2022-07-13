@@ -159,3 +159,49 @@ function dt_draw_event_function() {
 		window.fireEvent("on" + dt_draw_event.eventType, dt_draw_event);
 	}
 }
+
+//Ẩn toàn bộ modal
+window.addEventListener("hide_modals", function (e) {
+	$(".modal.fade").modal("hide");
+});
+
+//Ản modal cụ thể
+window.addEventListener("hide_modal", (event) => {
+	$(event.detail).modal("hide");
+});
+
+//Hiện modal cụ thể
+window.addEventListener("show_modal", (event) => {
+	$(event.detail).modal("show");
+});
+
+//Ẩn sau đó hiện modal
+window.addEventListener("hide_then_show_modal", (event) => {
+	$(".modal.fade").modal("hide");
+	window.show_modal = event.detail;
+});
+
+$(".modal.fade").on("hidden.bs.modal", function (e) {
+	if (!!window.show_modal) {
+		$.unblockUI();
+		$(window.show_modal).modal("show");
+	}
+});
+
+$(".modal.fade").on("shown.bs.modal", function (e) {
+	window.show_modal = null;
+});
+
+//Toastr thông báo
+window.addEventListener("toastr", (event) => {
+	toastr[event.detail.type](event.detail.message, event.detail.title, {
+		positionClass: "toast-top-right",
+		closeButton: true,
+		progressBar: true,
+		timeOut: 15000,
+		extendedTimeOut: 2000,
+		preventDuplicates: false,
+		newestOnTop: true,
+		rtl: $("body").attr("dir") === "rtl" || $("html").attr("dir") === "rtl",
+	});
+});
