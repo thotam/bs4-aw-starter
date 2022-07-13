@@ -132,12 +132,6 @@ trait InstallsBladeStack
 			'wildside/userstamps:dev-master'
 		);
 
-		\Artisan::call("laravel-auth:install");
-		\Artisan::call("laravel-hr:install");
-		\Artisan::call("vendor:publish --tag=datatables-buttons");
-		\Artisan::call("thotam-laravel-datatables-filter:install");
-		\Artisan::call("laravel-permission:install");
-
 		// Controllers...
 		copy(__DIR__ . '/../../stubs/App/Http/Controllers/HomeController.php', app_path('Http/Controllers/HomeController.php'));
 		copy(__DIR__ . '/../../stubs/App/Http/Controllers/Page2Controller.php', app_path('Http/Controllers/Page2Controller.php'));
@@ -172,7 +166,7 @@ trait InstallsBladeStack
 		// Middleware...
 		// $this->installMiddlewareAfter('VerifyCsrfToken::class', '\App\Http\Middleware\HandleInertiaRequests::class');
 
-		$this->info('Bootstrap 4 - Appwork - Starter Kits scaffolding installed successfully.');
-		$this->comment('Please execute the "npm install && npm run dev" command to build your assets.');
+		$this->info('Bootstrap 4 - Appwork - Starter Kits scaffolding installed successfully step 1.');
+		$this->comment('Please execute the "php artisan bs4-aw-starters:install-step-2" to conplete install.');
 	}
 }

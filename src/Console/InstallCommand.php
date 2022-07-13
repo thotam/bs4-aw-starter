@@ -76,7 +76,8 @@ class InstallCommand extends Command
 
 		$command = array_merge(
 			$command ?? ['composer', 'require'],
-			is_array($packages) ? $packages : func_get_args()
+			is_array($packages) ? $packages : func_get_args(),
+			["-W"]
 		);
 
 		(new Process($command, base_path(), ['COMPOSER_MEMORY_LIMIT' => '-1']))
