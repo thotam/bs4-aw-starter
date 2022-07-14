@@ -483,3 +483,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .ck.ck-content.ck-editor__editable {
 	max-height: 625px;
 }
+
+.action-icon:hover {
+	cursor: pointer;
+}

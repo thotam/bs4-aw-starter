@@ -39,6 +39,7 @@ class InstallCommandStep2 extends Command
 		\Artisan::call("laravel-hr:install");
 		\Artisan::call("vendor:publish", ["--tag" => ["datatables-buttons"]]);
 		\Artisan::call("thotam-laravel-datatables-filter:install");
+		\Artisan::call("laravel-team:install");
 		\Artisan::call("laravel-permission:install");
 		\Artisan::call("laravel-plus:install");
 
