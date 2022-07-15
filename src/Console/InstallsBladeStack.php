@@ -120,6 +120,7 @@ trait InstallsBladeStack
 		$this->addRepositories("thotam/laravel-hr");
 		$this->addRepositories("thotam/laravel-permission");
 		$this->addRepositories("thotam/laravel-plus");
+		$this->addRepositories("thotam/laravel-team");
 		$this->addRepositories("thotam/thotam-laravel-datatables-filter");
 
 		// requireComposerPackages
