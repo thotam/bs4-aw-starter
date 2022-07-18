@@ -35,21 +35,10 @@ class InstallCommandStep2 extends Command
 	 */
 	public function handle()
 	{
-		\Artisan::call('config:clear');
-
 		\Artisan::call('vendor:publish', ['--provider' => "Thotam\LaravelPermission\LaravelPermissionServiceProvider"]);
-
 		\Artisan::call('config:clear');
 
-		\Artisan::call("laravel-auth:install");
-		\Artisan::call("laravel-hr:install");
-		\Artisan::call("vendor:publish", ["--tag" => ["datatables-buttons"]]);
-		\Artisan::call("thotam-laravel-datatables-filter:install");
-		\Artisan::call("laravel-team:install");
-		\Artisan::call("laravel-permission:install");
-		\Artisan::call("laravel-plus:install");
-
-		$this->info('Bootstrap 4 - Appwork - Starter Kits scaffolding installed successfully.');
-		$this->comment('Please execute the "npm install && npm run dev" command to build your assets.');
+		$this->info('Bootstrap 4 - Appwork - Starter Kits scaffolding installed successfully step 2.');
+		$this->comment('Please execute the "php artisan bs4-aw-starters:install-step-3" to conplete install.');
 	}
 }

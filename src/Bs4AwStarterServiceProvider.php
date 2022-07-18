@@ -31,6 +31,7 @@ class Bs4AwStarterServiceProvider extends ServiceProvider implements DeferrableP
 		$this->commands([
 			Console\InstallCommand::class,
 			Console\InstallCommandStep2::class,
+			Console\InstallCommandStep3::class,
 		]);
 	}
 
