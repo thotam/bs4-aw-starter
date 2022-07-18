@@ -136,6 +136,10 @@ trait InstallsBladeStack
 			'wildside/userstamps:dev-master'
 		);
 
+		\Artisan::call('vendor:publish', ['--provider' => "Thotam\LaravelPermission\LaravelPermissionServiceProvider"]);
+
+		\Artisan::call('config:clear');
+
 		// Controllers...
 		copy(__DIR__ . '/../../stubs/App/Http/Controllers/HomeController.php', app_path('Http/Controllers/HomeController.php'));
 		copy(__DIR__ . '/../../stubs/App/Http/Controllers/Page2Controller.php', app_path('Http/Controllers/Page2Controller.php'));
