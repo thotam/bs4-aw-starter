@@ -35,6 +35,12 @@ class InstallCommandStep2 extends Command
 	 */
 	public function handle()
 	{
+		\Artisan::call('config:clear');
+
+		\Artisan::call('vendor:publish', ['--provider' => "Thotam\LaravelPermission\LaravelPermissionServiceProvider"]);
+
+		\Artisan::call('config:clear');
+
 		\Artisan::call("laravel-auth:install");
 		\Artisan::call("laravel-hr:install");
 		\Artisan::call("vendor:publish", ["--tag" => ["datatables-buttons"]]);
