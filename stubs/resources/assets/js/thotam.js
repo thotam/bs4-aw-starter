@@ -63,6 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	Livewire.hook("message.failed", (message, component) => {
 		$.unblockUI();
 	});
+
+	Livewire.hook("message.processed", (message, component) => {
+		thotam_rerender();
+	});
 });
 
 //Datatable Custom fillter
@@ -191,3 +195,49 @@ $(".modal.fade").on("hidden.bs.modal", function (e) {
 $(".modal.fade").on("shown.bs.modal", function (e) {
 	window.show_modal = null;
 });
+
+//Rerendering when updated
+function thotam_rerender() {
+	if ($("select[thotam-select2-rerender]").length != 0) {
+		$("select[thotam-select2-rerender]").each(function (e) {
+			thotam_livewire_id = eval($(this).attr("thotam-livewire-id"));
+
+			if (!!$(this).attr("multiple")) {
+				html = "";
+			} else {
+				html = "<option selected></option>";
+			}
+
+			array_data = thotam_livewire_id.get(
+				$(this).attr("thotam-select2-rerender")
+			);
+
+			array_data.forEach((element) => {
+				html +=
+					"<option value='" +
+					element.value +
+					"'>" +
+					element.text +
+					"</option>";
+			});
+
+			$(this).html(html);
+
+			$(this).val(thotam_livewire_id.get($(this).attr("wire:model")));
+
+			$(this).trigger("change.select2");
+		});
+	}
+
+	if ($("input[thotam-datepicker='true']").length != 0) {
+		$("input[thotam-datepicker='true']").each(function (e) {
+			$(this).datepicker("update");
+		});
+	}
+
+	if ($("input[thotam-datetimepicker='true']").length != 0) {
+		$("input[thotam-datetimepicker='true']").each(function (e) {
+			$(this).datetimepicker("update");
+		});
+	}
+}
