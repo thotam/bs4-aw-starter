@@ -487,3 +487,36 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .action-icon:hover {
 	cursor: pointer;
 }
+
+pre {
+	font-family: inherit;
+}
+
+pre.thotam-pre {
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	font-size: 100%;
+	color: inherit;
+	margin: 0;
+	font-family: inherit;
+}
+span.select2-selection__rendered,
+span.select2-selection.select2-selection--multiple,
+ul.select2-selection__rendered {
+	padding-left: 0.5rem !important;
+	padding-right: 0.5rem !important;
+}
+
+span.select2-selection.select2-selection--multiple
+	> ul.select2-selection__rendered {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+textarea.select2-search__field {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
