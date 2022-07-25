@@ -88,3 +88,31 @@ window.thotam_ajax_select2 = function (
 		});
 	}
 };
+
+//Livewire filter with select2
+window.thotam_filter_select2 = function (thotam_el, thotam_livewire_id) {
+	$(thotam_el)
+		.wrap('<div class="position-relative dt-select2"></div>')
+		.select2({
+			placeholder: $(thotam_el).attr("placeholder"),
+			minimumResultsForSearch: 6,
+			allowClear: false,
+			dropdownParent: $("div.card-datatable.table-responsive"),
+		});
+
+	if (!!$(thotam_el).attr("multiple")) {
+		$(thotam_el).on("select2:close", function (e) {
+			thotam_livewire_id.set(
+				$(thotam_el).attr("wire:model"),
+				$(thotam_el).val()
+			);
+		});
+	} else {
+		$(thotam_el).on("change", function (e) {
+			thotam_livewire_id.set(
+				$(thotam_el).attr("wire:model"),
+				$(thotam_el).val()
+			);
+		});
+	}
+};
