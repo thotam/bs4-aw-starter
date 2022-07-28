@@ -29,10 +29,89 @@ $home_hr = Auth::user()?->hr;
 			</a>
 		</li>
 
-		<li class="sidenav-item{{ $routeName == 'page-2' ? ' active' : '' }}">
-			<a href="{{ route('page-2') }}" class="sidenav-link"><i class="sidenav-icon ion ion-md-desktop"></i>
-				<div>Page 2</div>
+		<!-- Admin -->
+		@if ($home_hr->hasAnyRole(['super-admin', 'admin', 'admin-product']))
+			<li class="sidenav-item{{ strpos($routeName, 'admin.') === 0 ? ' active open' : '' }}">
+				<a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-users-cog d-block"></i>
+					<div>Admin</div>
+				</a>
+
+				<ul class="sidenav-menu">
+					@if ($home_hr->hasAnyRole(['super-admin', 'admin']))
+						<li class="sidenav-item{{ strpos($routeName, 'admin.member.') === 0 ? ' active open' : '' }}">
+							<a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-user-friends d-block"></i>
+								<div>Thành viên</div>
+							</a>
+
+							<ul class="sidenav-menu">
+
+								<li class="sidenav-item{{ $routeName == 'admin.member.user' ? ' active' : '' }}">
+									<a href="{{ route('admin.member.user') }}" class="sidenav-link"><i class="sidenav-icon far fa-user-circle d-block"></i>
+										<div>Tài khoản</div>
+									</a>
+								</li>
+
+								<li class="sidenav-item{{ $routeName == 'admin.member.hr' ? ' active' : '' }}">
+									<a href="{{ route('admin.member.hr') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user-lock d-block"></i>
+										<div>Nhân sự</div>
+									</a>
+								</li>
+
+								<li class="sidenav-item{{ $routeName == 'admin.member.team' ? ' active' : '' }}">
+									<a href="{{ route('admin.member.team') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i>
+										<div>Nhóm</div>
+									</a>
+								</li>
+
+							</ul>
+
+						</li>
+
+						<li class="sidenav-item{{ $routeName == 'admin.role' ? ' active' : '' }}">
+							<a href="{{ route('admin.role') }}" class="sidenav-link"><i class="sidenav-icon fas fas fa-user-tag d-block"></i>
+								<div>Phân quyền</div>
+							</a>
+						</li>
+					@endif
+
+					@if ($home_hr->hasAnyRole(['super-admin', 'admin', 'admin-chinhanh']))
+						<!-- Admin Chi nhánh -->
+						<li class="sidenav-item{{ $routeName == 'admin.chinhanh' ? ' active' : '' }}">
+							<a href="{{ route('admin.chinhanh') }}" class="sidenav-link pr-1"><i class="sidenav-icon fa-solid fa-code-branch d-block"></i>
+								<div>Chi nhánh</div>
+							</a>
+						</li>
+					@endif
+
+				</ul>
+			</li>
+		@endif
+
+		<li class="sidenav-item{{ strpos($routeName, 'khachhang.') === 0 ? ' active open' : '' }}">
+			<a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-users-cog d-block"></i>
+				<div>Khách hàng</div>
 			</a>
+
+			<ul class="sidenav-menu">
+				<li class="sidenav-item{{ $routeName == 'khachhang.khachhang' ? ' active' : '' }}">
+					<a href="{{ route('khachhang.khachhang') }}" class="sidenav-link pr-1"><i class="sidenav-icon fa-solid fa-id-card d-block"></i>
+						<div>Danh sách</div>
+					</a>
+				</li>
+
+				<li class="sidenav-item{{ $routeName == 'khachhang.phanbo' ? ' active' : '' }}">
+					<a href="{{ route('khachhang.phanbo') }}" class="sidenav-link pr-1"><i class="sidenav-icon fa-solid fa-ballot-check d-block"></i>
+						<div>Phân bổ</div>
+					</a>
+				</li>
+
+				<li class="sidenav-item{{ $routeName == 'khachhang.baocao' ? ' active' : '' }}">
+					<a href="{{ route('khachhang.baocao') }}" class="sidenav-link pr-1"><i class="sidenav-icon fa-solid fa-file-arrow-up d-block"></i>
+						<div>Báo cáo</div>
+					</a>
+				</li>
+			</ul>
+
 		</li>
 
 	</ul>
