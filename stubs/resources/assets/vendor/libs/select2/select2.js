@@ -100,19 +100,10 @@ window.thotam_filter_select2 = function (thotam_el, thotam_livewire_id) {
 			dropdownParent: $("div.card-datatable.table-responsive"),
 		});
 
-	if (!!$(thotam_el).attr("multiple")) {
-		$(thotam_el).on("select2:close", function (e) {
-			thotam_livewire_id.set(
-				$(thotam_el).attr("wire:model"),
-				$(thotam_el).val()
-			);
-		});
-	} else {
-		$(thotam_el).on("change", function (e) {
-			thotam_livewire_id.set(
-				$(thotam_el).attr("wire:model"),
-				$(thotam_el).val()
-			);
-		});
-	}
+	$(thotam_el).on("change", function (e) {
+		thotam_livewire_id.set(
+			$(thotam_el).attr("wire:model"),
+			$(thotam_el).val()
+		);
+	});
 };
